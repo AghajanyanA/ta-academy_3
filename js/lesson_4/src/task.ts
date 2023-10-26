@@ -6,6 +6,9 @@
 
 type PersonType = {
     occupation?: string;
+    name: string;
+    age: number | string;
+    isSuperHero?: boolean
 };
 
 export const users: PersonType[] = [
@@ -27,8 +30,8 @@ export const users: PersonType[] = [
     },
 ];
 
-export const getPersonNames = (arr: any): any => {
-    return  arr.map((item: { name: any; }) => item.name);
+export const getPersonNames = (arr: PersonType[]): string[] => {
+    return arr.map((item: { name: string }) => item.name);
 }
 
 export const personNames = getPersonNames(users);
