@@ -1,2 +1,2 @@
 Fullname: Armen Aghajanyan
-[Telegram](t.me/+37455560023)
+[Telegram](https://t.me/+37455560023)
