@@ -1,4 +1,4 @@
-const emailUsername: string = 'qwertyuiopoasdfghjklzxzcvbnm0123456789'
+const emailUsername: string = 'qwertyuiopoasdfghjklzxcvbnm0123456789'
 const service: string[] = ['gmail', 'mail', 'null', 'hacker', 'president', 'example', 'minister', 'usa', 'null', 'guns']
 const domain: string[] = ['.com', '.am', '.org', '.co.uk', '.mil', '.jp', '.ge', '.fr', '.ua', '.net']
 
@@ -8,7 +8,7 @@ const getRandomNumber = (max: number): number => { // get random number from 2 t
 
 export const generateEmail = (length: number): string => {
     let newUsername = ''
-    for (let i = 0; i <= length; i++) { // form random email username consisted of lowercase letters and numbers
+    for (let i = 0; i < length; i++) { // form random email username consisted of lowercase letters and numbers
         newUsername = newUsername + emailUsername[getRandomNumber(emailUsername.length - 1)]
     }
     

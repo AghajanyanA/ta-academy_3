@@ -42,13 +42,16 @@ test.describe('UHC-1 (test ID)', () => {
         await expect(
             page.locator('//h2[text()="No vision insurance? We got you!"]/../../..')
         ).toBeHidden();
-        await expect(page.locator('//div[@class="rc-dialog-content"]')).toBeVisible();
-        await expect(page.locator('//h2[contains(text(),"Welcome,")]')).toHaveText(
-            `Welcome, ${userName}`
-        ); // We could have used 'Welcome, .*' but I like it this way
-        await expect(
-            page.locator('//p[text()="You can start enjoying everything we have to offer"]')
-        ).toBeVisible();
+
+        await expect(async () => {
+            await expect(page.locator('//div[@class="rc-dialog-content"]')).toBeVisible();
+            await expect(page.locator('//h2[contains(text(),"Welcome,")]')).toHaveText(
+                `Welcome, ${userName}`
+            ); // We could have used 'Welcome, .*' but I like it this way
+            await expect(
+                page.locator('//p[text()="You can start enjoying everything we have to offer"]')
+            ).toBeVisible();
+        }).toPass()
 
         // Step 4
 
@@ -56,13 +59,15 @@ test.describe('UHC-1 (test ID)', () => {
 
         await expect(page.locator('//div[@class="rc-dialog-content"]')).toBeHidden();
 
-        await expect(
-            page.locator('//div[contains(@class, "title")][contains(text(), "Hello")]')
-        ).toHaveText(`Hello, ${userName}`);
-
-        await expect(
-            page.locator('//header[contains(@class, "eligibilityWidget__header")]/p')
-        ).toHaveText(`Hi ${userName.charAt(0).toUpperCase() + userName.slice(1)}`); // capitalize first letter just in case, becuase snackbar does the same, and if our first name was all lower letters - test would fail
+        await expect(async () => {
+            await expect(
+                page.locator('//div[contains(@class, "title")][contains(text(), "Hello")]')
+            ).toHaveText(`Hello, ${userName}`);
+    
+            await expect(
+                page.locator('//header[contains(@class, "eligibilityWidget__header")]/p')
+            ).toHaveText(`Hi ${userName.charAt(0).toUpperCase() + userName.slice(1)}`); // capitalize first letter just in case, becuase snackbar does the same, and if our first name was all lower letters - test would fail
+        }).toPass()
 
         // Step 5
 
