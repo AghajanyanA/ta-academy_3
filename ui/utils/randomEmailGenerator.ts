@@ -2,7 +2,7 @@ const emailUsername: string = 'qwertyuiopoasdfghjklzxzcvbnm0123456789'
 const service: string[] = ['gmail', 'mail', 'null', 'hacker', 'president', 'example', 'minister', 'usa', 'null', 'guns']
 const domain: string[] = ['.com', '.am', '.org', '.co.uk', '.mil', '.jp', '.ge', '.fr', '.ua', '.net']
 
-const getRandomNumber = (max: number): number => { // get random number from 0 to max
+const getRandomNumber = (max: number): number => { // get random number from 2 to max
     return Math.round(Math.random() * max)
 }
 
