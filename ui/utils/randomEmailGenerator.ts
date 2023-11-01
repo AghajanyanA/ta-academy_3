@@ -3,7 +3,7 @@ const service: string[] = ['gmail', 'mail', 'null', 'hacker', 'president', 'exam
 const domain: string[] = ['.com', '.am', '.org', '.co.uk', '.mil', '.jp', '.ge', '.fr', '.ua', '.net']
 
 const getRandomNumber = (max: number): number => { // get random number from 2 to max
-    return Math.round((Math.random() * (max - 2) + 2)
+    return Math.round(Math.random() * (max - 2) + 2)
 }
 
 export const generateEmail = (length: number): string => {
