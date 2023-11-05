@@ -1,5 +1,4 @@
 import { Component } from "@Core/component";
-import { expect } from "@Test";
 import { Register } from "./header/auth/register";
 
 export class Auth extends Component {
@@ -14,12 +13,9 @@ export class Auth extends Component {
 
     public registerTitle = this.LOCATORS.registerTitle
 
-
     public async displayRegisterPage(): Promise<void> {
         await this.LOCATORS.createNewAccountBTN.click()
-        await expect(this.LOCATORS.registerTitle).toBeVisible()
     }
-
 
     public Register = new Register(this.locator, this.page)
 

@@ -16,6 +16,7 @@ test.describe('UHC-1', () => {
         await test.step('Step 2 — Click create account button', async () => {
 
             await homePage.Auth.displayRegisterPage();
+            await expect(homePage.Auth.registerTitle).toBeVisible()
 
         })
 
