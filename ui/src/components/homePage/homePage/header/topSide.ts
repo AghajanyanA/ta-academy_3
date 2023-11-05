@@ -9,11 +9,11 @@ export class TopSide extends Component {
         myAccount: this.locator.locator('//div[contains(@class, "myAccount__title")]')
     };
 
-    public async openAccountPanel() {
+    public async openAccountPanel(): Promise<void> {
         await this.LOCATORS.myAccountContainer.hover()
     }
 
-    public welcomeMessage() {
+    public welcomeMessage(): Locator {
         return this.LOCATORS.welcomeMessage
     }
 
