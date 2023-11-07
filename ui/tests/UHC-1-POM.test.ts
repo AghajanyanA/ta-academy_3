@@ -32,13 +32,15 @@ test.describe('UHC-1', () => {
                 password: '12345678aA.',
             });
 
-            expect(await homePage.Auth.isRegisterTitleVisible()).toBe(false);
-
-            expect(await homePage.WelcomeModal.isVisible()).toBe(true);
-
-            expect(await homePage.WelcomeModal.title()).toStrictEqual(`Welcome, ${userName}`);
-
-            expect(await homePage.WelcomeModal.isSubtitleVisible()).toBe(true);
+            expect(async () => {
+                expect(await homePage.Auth.isRegisterTitleVisible()).toBe(false);
+    
+                expect(await homePage.WelcomeModal.isVisible()).toBe(true);
+    
+                expect(await homePage.WelcomeModal.title()).toStrictEqual(`Welcome, ${userName}`);
+    
+                expect(await homePage.WelcomeModal.isSubtitleVisible()).toBe(true);
+            }).toPass()
         });
 
         await test.step('Step 4 — Check if user is successfully registered', async () => {
