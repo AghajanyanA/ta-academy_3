@@ -9,7 +9,7 @@ type RegistrationForm = {
 
 export class Register extends Component {
     private LOCATORS = {
-        input: (name: string) => this.locator.locator(`//input[@name=${name}]`),
+        input: (name: string) => this.locator.locator(`//input[@name="${name}"]`),
         createAccountBTN: this.locator.locator('//button[@aria-label="Create new account"]'),
     };
     public async fillRegisterData(data: RegistrationForm): Promise<void> {
