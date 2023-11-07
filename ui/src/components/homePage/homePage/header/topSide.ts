@@ -4,23 +4,22 @@ import { Component } from '@Core/component';
 
 export class TopSide extends Component {
     private LOCATORS = {
-        myAccountContainer: this.locator.locator('//div[contains(@class,"myAccount__myAccountMenu")]'),
-        welcomeMessage: this.locator.locator('//div[contains(@class, "title")][contains(text(), "Hello")]'),
-        myAccount: this.locator.locator('//div[contains(@class, "myAccount__title")]')
+        myAccountContainer: this.locator.locator(
+            '//div[contains(@class,"myAccount__myAccountMenu")]'
+        ),
+        welcomeMessage: this.locator.locator(
+            '//div[contains(@class, "title")][contains(text(), "Hello")]'
+        ),
+        myAccount: this.locator.locator('//div[contains(@class, "myAccount__title")]'),
     };
 
-    public async openAccountPanel(): Promise<void> {
-        await this.LOCATORS.myAccountContainer.hover()
+    public MyAccountDrop = new MyAccountDrop(this.LOCATORS.myAccountContainer, this.page);
+
+    public async welcomeMessage(): Promise<string | null> {
+        return await this.LOCATORS.welcomeMessage.textContent();
     }
 
-    public welcomeMessage(): Locator {
-        return this.LOCATORS.welcomeMessage
+    public async myAccount(): Promise<string | null> {
+        return await this.LOCATORS.myAccount.textContent();
     }
-
-    public myAccount(): Locator {
-        return this.LOCATORS.myAccount
-    }
-
-    public MyAccountDrop = new MyAccountDrop(this, this.LOCATORS.myAccountContainer, this.page)
-
 }

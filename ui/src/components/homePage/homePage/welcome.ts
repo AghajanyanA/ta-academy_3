@@ -1,26 +1,26 @@
-import { Component } from "@Core/component";
-import { Locator } from "@playwright/test";
+import { Component } from '@Core/component';
+import { Locator } from '@playwright/test';
 
-
-export class Welcome extends Component {
+export default class WelcomeModal extends Component {
     private LOCATORS = {
-        welcomeWindow: this.locator.locator('//div[@class="rc-dialog-content"]'),
         welcomeTitle: this.locator.locator('//h2[contains(text(),"Welcome,")]'),
-        welcomeSubtitle: this.locator.locator('//p[text()="You can start enjoying everything we have to offer"]'),
-        closeBTN: this.locator.locator('//button[@aria-label="Close"]')
+        welcomeSubtitle: this.locator.locator(
+            '//p[text()="You can start enjoying everything we have to offer"]'
+        ),
+        closeBTN: this.locator.locator('//button[@aria-label="Close"]'),
+    };
+
+    public async isVisible(): Promise<boolean> {
+        return await this.locator.isVisible();
     }
 
-    public welcomeWindow(): Locator {
-        return this.LOCATORS.welcomeWindow
+    public async title(): Promise<string | null> {
+        return await this.LOCATORS.welcomeTitle.textContent();
     }
-
-    public title(): Locator {
-        return this.LOCATORS.welcomeTitle
-    }
-    public subtitle(): Locator {
-        return this.LOCATORS.welcomeSubtitle
+    public async isSubtitleVisible(): Promise<boolean> {
+        return await this.LOCATORS.welcomeSubtitle.isVisible();
     }
     public async closeWindow(): Promise<void> {
-        await this.LOCATORS.closeBTN.click()
+        await this.LOCATORS.closeBTN.click();
     }
 }
