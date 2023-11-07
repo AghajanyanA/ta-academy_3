@@ -1,9 +1,12 @@
-import { generateEmail } from './../utils/randomEmailGenerator';
+import { generateEmail } from '../src/utils/randomEmailGenerator';
 import { test, expect } from '@Test';
 
 test.describe('UHC-1 (test ID)', () => {
-    test('Registration new customer with valid data and checking user data reset after logout', async ({ browser, page, baseURL, }) => {
-        
+    test('Registration new customer with valid data and checking user data reset after logout', async ({
+        browser,
+        page,
+        baseURL,
+    }) => {
         // Step 1
 
         await page.goto(baseURL as string, { waitUntil: 'domcontentloaded' });
@@ -51,7 +54,7 @@ test.describe('UHC-1 (test ID)', () => {
             await expect(
                 page.locator('//p[text()="You can start enjoying everything we have to offer"]')
             ).toBeVisible();
-        }).toPass()
+        }).toPass();
 
         // Step 4
 
@@ -63,11 +66,11 @@ test.describe('UHC-1 (test ID)', () => {
             await expect(
                 page.locator('//div[contains(@class, "title")][contains(text(), "Hello")]')
             ).toHaveText(`Hello, ${userName}`);
-    
+
             await expect(
                 page.locator('//header[contains(@class, "eligibilityWidget__header")]/p')
             ).toHaveText(`Hi ${userName.charAt(0).toUpperCase() + userName.slice(1)}`); // capitalize first letter just in case, becuase snackbar does the same, and if our first name was all lower letters - test would fail
-        }).toPass()
+        }).toPass();
 
         // Step 5
 
