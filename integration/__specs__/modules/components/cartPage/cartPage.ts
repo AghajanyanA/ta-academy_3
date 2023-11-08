@@ -33,9 +33,9 @@ export class CartPage extends Container {
 
         return new ModalAddItem(modal);
     }
-    public async getModalAddNewItem() {
-        const [modal] = await document.waitForXpath(this.selectors.modalAddItem)
-        
-        return modal        
+    public async getModalAddNewItem(): Promise<Element> {
+        const [modal] = await document.waitForXpath(this.selectors.modalAddItem);
+
+        return modal;
     }
 }

@@ -1,5 +1,5 @@
 import { extractPriceForOne } from './../../../../utils/extractPriceForOne';
-import { TestDataID } from '@Components/cartPage/ModalAddItem/ModalAddItem';
+import type { TestDataID } from '@Components/cartPage/ModalAddItem/ModalAddItem';
 import { Component } from '@Core/component';
 import { fireEvent } from '@testing-library/react';
 
@@ -24,8 +24,8 @@ export class CartItem extends Component {
     }
 
     public async getQuantity(): Promise<number> {
-        const [quantityElement] = await document.waitForXpath(this.selectors.quantity)
-        return +quantityElement.textContent
+        const [quantityElement] = await document.waitForXpath(this.selectors.quantity);
+        return +quantityElement.textContent;
     }
 
     public async getName(): Promise<string> {
@@ -38,14 +38,14 @@ export class CartItem extends Component {
     }
 
     public async getLatestAddedItem(data: TestDataID): Promise<TestDataID> {
-        const price = await this.getPriceForAll() / data.quantity;
+        const price = (await this.getPriceForAll()) / data.quantity;
         const name = await this.getName();
         const quantity = await this.getQuantity();
-        return {price, name, quantity}
+        return { price, name, quantity };
     }
 
     public async deleteLatestItem(): Promise<void> {
-        const [deleteButton] = await document.waitForXpath(this.selectors.deleteButton)
-        fireEvent.click(deleteButton)
+        const [deleteButton] = await document.waitForXpath(this.selectors.deleteButton);
+        fireEvent.click(deleteButton);
     }
 }
