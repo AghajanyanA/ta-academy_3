@@ -1,5 +1,4 @@
 import { Component } from '@Core/component';
-import { Locator } from '@playwright/test';
 
 export default class WelcomeModal extends Component {
     private LOCATORS = {
